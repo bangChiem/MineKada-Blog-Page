@@ -6,13 +6,15 @@ import {
 
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/aboutPage';
-import ArticlesList from './pages/ArticlesList';
+import ArticlesListPage from './pages/ArticlesListPage';
 import ArticlePage from './pages/ArticlePage';
 import Layout from './Layout';
+import NotFound from './pages/NotFoundPage';
 
 const routes = [{
   path: '/',
   element: <Layout />,
+  errorElement: <NotFound />,
     children: [{
         path: '/',
         element: <HomePage />
@@ -21,7 +23,7 @@ const routes = [{
         element: <AboutPage />,
       }, {
         path: 'articles',
-        element: <ArticlesList />,
+        element: <ArticlesListPage />,
       }, {
         path: '/articles/:name', //
         element: <ArticlePage />
