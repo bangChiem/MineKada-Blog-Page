@@ -5,7 +5,6 @@ const app = express();
 
 let db;
 
-
 async function connectToDB() {
     const uri = 'mongodb://127.0.0.1:27017';
   
@@ -30,6 +29,11 @@ app.get('/api/articles/:name', async (req, res) => {
     res.json(article);
   });
 
+app.get('/api/getarticles', async (req, res) => {
+    const articles = await db.collection('articles').find().toArray()
+    res.json(articles);
+}) 
+
 app.post('/api/articles/:name/upvote', async (req,res) => {
     const { name } = req.params; 
     const updatedArticle = await db.collection('articles').findOneAndUpdate({ name } , {
@@ -38,6 +42,16 @@ app.post('/api/articles/:name/upvote', async (req,res) => {
         returnDocument: 'after',
     });
 
+    res.json(updatedArticle)
+})
+
+app.post('/api/writearticle', async (req,res) => {
+    const { title, content } = req.body;
+    const name = title.split(" ").join("+");
+    const upvotes = 0;
+    const comments = [];
+    const newArticle = {name, title, content, upvotes, comments}
+    const updatedArticle = await db.collection('articles').insertOne(newArticle);
     res.json(updatedArticle)
 })
 

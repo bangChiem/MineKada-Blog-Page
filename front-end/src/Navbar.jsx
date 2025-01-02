@@ -14,6 +14,9 @@ export default function Navbar(){
                 <li className="me-3"> 
                     <Link className="nav-item" to='/articles'>Articles</Link>
                 </li>
+                <li className="me-3"> 
+                    <Link className="nav-item" to='/write-article'>Write</Link>
+                </li>
             </ul>
         </nav>      
 

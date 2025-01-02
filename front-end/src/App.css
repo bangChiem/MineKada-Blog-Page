@@ -29,6 +29,10 @@ nav h2 .style2{
 }
 
 
+/* ARTICLE PAGE */
+.article-container {
+  margin: 3vw 10vw 0 10vw;
+}
 
 
 @font-face {

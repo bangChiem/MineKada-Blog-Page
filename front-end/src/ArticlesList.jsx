@@ -12,7 +12,7 @@ export default function ArticlesList( {articles} ){
                         <Card style={{ width: '100%' }}>
                             <Card.Img variant="top" src="src/assets/backgrounds/dirt.png" />
                             <Card.Body>
-                                <Card.Title>{a.name}</Card.Title>
+                                <Card.Title>{a.title}</Card.Title>
                                 <Card.Text>{a.content[0].substring(0, 150)}...</Card.Text>
                                 <Link to={'/articles/' + a.name}>
                                     <Button variant="primary">Go somewhere</Button>
