@@ -29,10 +29,17 @@ app.get('/api/articles/:name', async (req, res) => {
     res.json(article);
   });
 
+app.get('/api/articles/:name/imageid', async (req, res) => {
+    const { name } = req.params;
+    const article = await db.collection('articles').findOne({ name });
+    res.json(article);
+});
+
 app.get('/api/getarticles', async (req, res) => {
     const articles = await db.collection('articles').find().toArray()
     res.json(articles);
-}) 
+})
+ 
 
 app.post('/api/articles/:name/upvote', async (req,res) => {
     const { name } = req.params; 
