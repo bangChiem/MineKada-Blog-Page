@@ -39,7 +39,6 @@ app.get('/api/getarticles', async (req, res) => {
     const articles = await db.collection('articles').find().toArray()
     res.json(articles);
 })
- 
 
 app.post('/api/articles/:name/upvote', async (req,res) => {
     const { name } = req.params; 

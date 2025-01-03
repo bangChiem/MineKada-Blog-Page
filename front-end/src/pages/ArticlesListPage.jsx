@@ -21,3 +21,14 @@ export async function articlesLoader() {
     return articles;
   }
 
+export function imageIdToIMG( imgId ){
+    if (imgId == 1){
+        return "dirt.png"
+    } else if(imgId == 2){
+        return "stone.png"
+    }
+    else {
+        return "wood.png"
+    }
+}
+

@@ -7,12 +7,12 @@ export default function ArticlesList( {articles} ){
 
     function imageIdToIMG( imgId ){
         if (imgId == 1){
-            return "src/assets/backgrounds/dirt.png"
+            return "dirt.png"
         } else if(imgId == 2){
-            return "src/assets/backgrounds/stone.png"
+            return "stone.png"
         }
         else {
-            return "src/assets/backgrounds/wood.png"
+            return "wood.png"
         }
     }
 

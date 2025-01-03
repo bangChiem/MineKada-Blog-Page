@@ -7,7 +7,7 @@ import {
 import axios from 'axios'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/aboutPage';
-import ArticlesListPage, {articlesLoader} from './pages/ArticlesListPage';
+import ArticlesListPage, {articlesLoader, imageIdToIMG} from './pages/ArticlesListPage';
 import ArticlePage, {articleLoader} from './pages/ArticlePage';
 import Layout from './Layout';
 import NotFound from './pages/NotFoundPage';
@@ -29,7 +29,7 @@ const routes = [{
         loader: articlesLoader,
       }, {
         path: '/articles/:name', //
-        element: <ArticlePage />,
+        element: <ArticlePage imageIdToIMG={imageIdToIMG}/>,
         loader: articleLoader,
     },   {
         path: 'write-article',
