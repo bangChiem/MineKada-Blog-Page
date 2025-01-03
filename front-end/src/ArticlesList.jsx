@@ -4,13 +4,26 @@ import Card from 'react-bootstrap/Card';
 
 
 export default function ArticlesList( {articles} ){
+
+    function imageIdToIMG( imgId ){
+        if (imgId == 1){
+            return "src/assets/backgrounds/dirt.png"
+        } else if(imgId == 2){
+            return "src/assets/backgrounds/stone.png"
+        }
+        else {
+            return "src/assets/backgrounds/wood.png"
+        }
+    }
+
+
     return( 
         <div className="container">
             <div className="row">
                 {articles.map((a) => (
                     <div key={a.name} className="col-md-4 mb-4 d-flex align-items-stretch">
                         <Card style={{ width: '100%' }}>
-                            <Card.Img variant="top" src="src/assets/backgrounds/dirt.png" />
+                            <Card.Img variant="top" src={imageIdToIMG(a.imageId)} />
                             <Card.Body>
                                 <Card.Title>{a.title}</Card.Title>
                                 <Card.Text>{a.content[0].substring(0, 150)}...</Card.Text>

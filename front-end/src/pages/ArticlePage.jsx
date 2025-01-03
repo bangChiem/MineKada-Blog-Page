@@ -43,5 +43,5 @@ export default function ArticlePage() {
 export async function articleLoader({ params }) {
   const response = await axios.get('/api/articles/' + params.name);
   const { title, content, upvotes, comments } = response.data;
-  return { title, content, upvotes, comments };
+  return { title, content, upvotes, comments};
 }

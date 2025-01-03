@@ -46,11 +46,11 @@ app.post('/api/articles/:name/upvote', async (req,res) => {
 })
 
 app.post('/api/writearticle', async (req,res) => {
-    const { title, content } = req.body;
+    const { title, content, imageId } = req.body;
     const name = title.split(" ").join("+");
     const upvotes = 0;
     const comments = [];
-    const newArticle = {name, title, content, upvotes, comments}
+    const newArticle = {name, title, content, upvotes, comments, imageId}
     const updatedArticle = await db.collection('articles').insertOne(newArticle);
     res.json(updatedArticle)
 })
