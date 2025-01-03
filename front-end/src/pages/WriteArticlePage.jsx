@@ -28,7 +28,6 @@ export default function WriteArticle(){
 
             <button onClick={() => {
                 onPublishArticle( {title, content} );
-                // console.log()
                 console.log("published!")
             }}>Publish Article</button>
         </>
