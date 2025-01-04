@@ -1,17 +1,18 @@
-import {useState} from 'react'
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
+import Button from 'react-bootstrap/esm/Button';
 
 export default function WriteArticle(){
 
-    const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
-    const [imageId, setImageId] = useState(0)
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
-    async function onPublishArticle({title, content, imageId}){
+    async function onPublishArticle({title, content, }){
         const response = await axios.post('api/writearticle', {
             title: title,
             content: [content],
-            imageId: imageId
+            imageId: 0
         });
     }
 
@@ -28,15 +29,11 @@ export default function WriteArticle(){
                 <textarea autoComplete='on' id='article-text' type="text" placeholder="enter text" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
             </div>
 
-            <div>
-                <label htmlFor="article-imageId">ImageId</label>
-                <textarea autoComplete='on' id='article-imageId' type="number" placeholder="enter image ID" value={imageId} onChange={(e) => setImageId(e.target.value)}></textarea>
-            </div>
-
-            <button onClick={() => {
-                onPublishArticle( {title, content, imageId} );
-                console.log("published!")
-            }}>Publish Article</button>
+            <Link to={'/write-article/' + title.split(" ").join("+") + '/choose-image'}>
+                <Button onClick={() => {
+                    onPublishArticle( {title, content} );}}
+                variant='primary'>Next</Button>
+            </Link>
         </>
         
     )

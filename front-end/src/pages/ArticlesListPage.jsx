@@ -9,8 +9,8 @@ export default function ArticlesListPage() {
 
     return (
         <>
-        <p> &gt; Current Articles</p>
-        <ArticlesList articles={articles}/>
+            <p> &gt; Current Articles</p>
+            <ArticlesList articles={articles}/>
         </>
     );
 }

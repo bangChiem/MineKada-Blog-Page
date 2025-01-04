@@ -61,6 +61,16 @@ app.post('/api/writearticle', async (req,res) => {
     res.json(updatedArticle)
 })
 
+app.post('/api/writearticle/:name/change-img-id', async (req,res) => {
+    const { name } = req.params;
+    const { imageId } = req.body;
+    const updatedArticle = await db.collection('articles').findOneAndUpdate({ name }, {
+        $set: { imageId: imageId }
+    }, {
+        returnDocument: 'after', // Return the updated document
+    })
+})
+
 app.post('/api/articles/:name/comments', async (req,res) => {
     const { name } = req.params;
     const { postedBy, text } = req.body;
