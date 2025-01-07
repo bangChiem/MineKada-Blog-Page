@@ -10,7 +10,7 @@ export default function ArticlesListPage() {
     return (
         <>
             <p> &gt; Current Articles</p>
-            <ArticlesList articles={articles}/>
+            <ArticlesList articles={articles} imageIdToIMG={imageIdToIMG}/>
         </>
     );
 }
@@ -26,6 +26,8 @@ export function imageIdToIMG( imgId ){
         return "dirt.png"
     } else if(imgId == 2){
         return "stone.png"
+    } else if(imgId == 3){
+        return "screenshot.png"
     }
     else {
         return "wood.png"

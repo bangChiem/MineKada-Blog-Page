@@ -1,0 +1,76 @@
+ /* HOMEPAGE */
+
+ /* Hero */
+ .hero-container{
+    background-image: url('home-cloud.png');
+    background-size: cover;
+  }
+  
+  .hero-container h1{
+    margin: 0;
+    color: rgb(31, 171, 40);
+    font-size: clamp(45px, 10vw, 150px);
+    line-height: fit;
+  }
+  
+  .hero-container h2{
+    font-size: clamp(25px, 7vw, 40px);
+    line-height: 4vw;
+    margin-bottom: 0;
+  }
+
+/* Content */
+  .content-container{
+    background-color: #A5292A;
+    border: var(--border-width) solid #8B2526;
+  }
+
+  .image-container{
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+
+  .image-container img{
+    width: 95%;
+    display: block;
+    border: #3C3C3C solid var(--border-width);
+    margin: auto auto auto auto;
+  }
+
+/* Text */
+  .text-box{
+    background-color: #DADADA;
+    border: #b2b2b2 solid var(--border-width);
+    padding: 2vw;
+    width: 95%;
+    margin: auto;
+  }
+
+  .text-box h3{
+    font-weight: 500;
+  }
+
+  .text-box p{
+    margin-bottom: 2vw;
+  }
+
+  .text-box button{
+    padding: 10px;
+    background-color: #00C3FF;
+    color: white;
+    border: none;
+    transition: 0.3s;
+  }
+
+  .text-box button:hover{
+    transform: scale(1.1);
+    background-color: #44d3ff;
+  }
+
+  .text-box-container{
+    margin: auto;
+    padding: 0;
+  }
+
+  

@@ -6,10 +6,30 @@ h2{
   color: rgb(120, 60, 23);
 }
 
+.page-container {
+  background-color: #EFEFEF;
+}
+
 body{
   font-family: 'MinecraftReg';
-  background-color: rgb(218, 218, 218);
 }
+
+.backdrop{
+  background-image: url('background.png');
+  background-color: rgb(218, 218, 218);
+  background-size: auto;
+}
+
+:root {
+  --border-width: 5px; /* Default value */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --border-width: 10px; /* Medium screens and up */
+  }
+}
+
 
 @font-face {
   font-family: 'MinecraftTen';

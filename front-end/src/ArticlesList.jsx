@@ -3,20 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 
-export default function ArticlesList( {articles} ){
-
-    function imageIdToIMG( imgId ){
-        if (imgId == 1){
-            return "dirt.png"
-        } else if(imgId == 2){
-            return "stone.png"
-        }
-        else {
-            return "wood.png"
-        }
-    }
-
-
+export default function ArticlesList( {articles, imageIdToIMG} ){
+    
     return( 
         <div className="container">
             <div className="row">
