@@ -7,7 +7,7 @@ import {
 
 import HomePage from './pages/Homepage/HomePage';
 import AboutPage from './pages/AboutPage';
-import ArticlesListPage, {articlesLoader, imageIdToIMG} from './pages/ArticlesListPage';
+import ArticlesListPage, {articlesLoader} from './pages/ArticlesListPage';
 import ArticlePage, {articleLoader} from './pages/ArticlePage';
 import Layout from './Layout';
 import NotFound from './pages/NotFoundPage';
@@ -47,11 +47,11 @@ const routes = [{
         element: <AboutPage />,
       }, {
         path: 'articles',
-        element: <ArticlesListPage />,
+        element: <ArticlesListPage images={images}/>,
         loader: articlesLoader,
       }, {
         path: '/articles/:name', 
-        element: <ArticlePage imageIdToIMG={imageIdToIMG}/>,
+        element: <ArticlePage images={images}/>,
         loader: articleLoader,
     },   {
         path: 'write-article',

@@ -3,13 +3,13 @@ import ArticlesList from "../ArticlesList.jsx";
 import axios from "axios";
 import './ArticlesListPage.css'
 import { useLoaderData } from "react-router-dom";
-export default function ArticlesListPage() {
+export default function ArticlesListPage( {images} ) {
 
     const articles = useLoaderData();
 
     return (
         <>
-            <ArticlesList articles={articles} imageIdToIMG={imageIdToIMG}/>
+            <ArticlesList articles={articles} images={images}/>
         </>
     );
 }
@@ -19,17 +19,4 @@ export async function articlesLoader() {
     const articles = response.data;
     return articles;
   }
-
-export function imageIdToIMG( imgId ){
-    if (imgId == 1){
-        return "dirt.png"
-    } else if(imgId == 2){
-        return "stone.png"
-    } else if(imgId == 3){
-        return "screenshot.png"
-    }
-    else {
-        return "wood.png"
-    }
-}
 

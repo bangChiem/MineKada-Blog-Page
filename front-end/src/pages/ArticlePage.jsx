@@ -4,7 +4,7 @@ import axios from 'axios';
 import CommentsList from '../CommentsList';
 import AddCommentForm from '../AddCommentForm';
 
-export default function ArticlePage( {imageIdToIMG} ) {
+export default function ArticlePage( {images} ) {
   const { name } = useParams();
   const { upvotes: initialUpvotes, comments:initialComments, title: title, content: content, imageId:imageId} = useLoaderData();
   const [upvotes, setUpvotes] = useState(initialUpvotes);
@@ -29,7 +29,7 @@ export default function ArticlePage( {imageIdToIMG} ) {
 
     <div className='article-container'>
       <h1>{title}</h1>
-      <img src={'/' + imageIdToIMG(imageId)}/>
+      <img src={images[imageId]}/>
       <button onClick={onUpvoteClicked}>Upvote</button>
       <p>This article has {upvotes} upvotes</p>
       {content.map((p, index) => (
