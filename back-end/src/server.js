@@ -53,7 +53,7 @@ app.post('/api/articles/:name/upvote', async (req,res) => {
 
 app.post('/api/writearticle', async (req,res) => {
     const { title, content, imageId } = req.body;
-    const name = title.split(" ").join("+");
+    const name = title.toLowerCase().split(" ").join("+");
     const upvotes = 0;
     const comments = [];
     const newArticle = {name, title, content, upvotes, comments, imageId}
@@ -69,6 +69,8 @@ app.post('/api/writearticle/:name/change-img-id', async (req,res) => {
     }, {
         returnDocument: 'after', // Return the updated document
     })
+
+    res.json(200)
 })
 
 app.post('/api/articles/:name/comments', async (req,res) => {

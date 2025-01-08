@@ -34,7 +34,7 @@ export default function WriteArticle(){
                 </div>
 
                 <div>
-                    <Link to={'/write-article/' + title.split(" ").join("+") + '/choose-image'}>
+                    <Link to={'/write-article/' + title.toLowerCase().split(" ").join("+") + '/choose-image'}>
                         <button onClick={() => {
                             onPublishArticle( {title, content} );}}
                         >Next</button>
