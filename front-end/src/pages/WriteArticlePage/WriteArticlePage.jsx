@@ -9,11 +9,17 @@ export default function WriteArticle(){
     const [content, setContent] = useState('');
 
     async function onPublishArticle({title, content, }){
-        const response = await axios.post('api/writearticle', {
-            title: title,
-            content: [content],
-            imageId: 0
-        });
+        try{
+            const response = await axios.post('api/writearticle', {
+                title: title,
+                content: [content],
+                imageId: 0
+            });
+        } catch(err){
+            console.error("failed to post new article / from write article page")
+            console.error(err);
+        }
+
     }
 
     return (

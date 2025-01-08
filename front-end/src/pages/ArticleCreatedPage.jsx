@@ -8,12 +8,17 @@ export default function ArticleCreatedPage(){
     const { name } = useParams();
 
     async function confirmArticleCreated(){
-        const response = await axios.get('/api/articles/' + name)
-        if (response.data == null){
-            setIsArticleCreated(false);
-        }
-        else {
-            setIsArticleCreated(true);
+        try{
+            const response = await axios.get('/api/articles/' + name)
+            if (response.data == null){
+                setIsArticleCreated(false);
+            }
+            else {
+                setIsArticleCreated(true);
+            }
+        } catch(err){
+            console.err("failed to fetch article " + name + " to confirm article was created / from article created page")
+            console.error(err);
         }
     }
 

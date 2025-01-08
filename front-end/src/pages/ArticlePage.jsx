@@ -11,22 +11,30 @@ export default function ArticlePage( {images} ) {
   const [comments, setComments] = useState(initialComments);
 
   async function onUpvoteClicked() {
-    const response = await axios.post('/api/articles/' + name + '/upvote');
-    const updatedArticleData = response.data;
-    setUpvotes(updatedArticleData.upvotes);
+    try{
+      const response = await axios.post('/api/articles/' + name + '/upvote');
+      const updatedArticleData = response.data;
+      setUpvotes(updatedArticleData.upvotes);
+    } catch(err){
+      console.error("Failed to increment upvote for article " + name + " / from ArticlePage");
+      console.error(err);
+    }
   }
 
   async function onAddComment( {nameText, commentText}) {
-    const response = await axios.post('/api/articles/' + name + '/comments', {
-      postedBy: nameText,
-      text: commentText,
-    });
-    const updatedArticleData = response.data;
-    setComments(updatedArticleData.comments);
+    try{
+      const response = await axios.post('/api/articles/' + name + '/comments', {
+        postedBy: nameText,
+        text: commentText,
+      });
+      const updatedArticleData = response.data;
+      setComments(updatedArticleData.comments);
+    } catch(err){
+      console.error("Failed to post comment for article " + name + "/ from Article Page");
+    }
   }
 
   return (
-
     <div className='article-container'>
       <h1>{title}</h1>
       <img src={images[imageId]}/>

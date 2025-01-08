@@ -10,9 +10,15 @@ export default function ChooseImgPage( {images} ){
     const [imageId, setImageId] = useState(0)
 
     async function onSubmitImgId( {imageId}) {
-        const response = await axios.post('/api/writearticle/' + name + '/change-img-id', {
-            imageId: imageId,
-        });
+        try{
+            const response = await axios.post('/api/writearticle/' + name + '/change-img-id', {
+                imageId: imageId,
+            });
+        } catch(err){
+            console.error("failed to update articles image id / from choose img page");
+            console.error(err);
+        }
+        
     }
 
     return (
