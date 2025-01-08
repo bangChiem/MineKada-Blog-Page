@@ -7,7 +7,7 @@ h2{
 }
 
 .page-container {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #F6F6F6;
   width: 90%;
   padding: 2rem;
