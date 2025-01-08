@@ -10,7 +10,7 @@ import ArticlesListPage, {articlesLoader, imageIdToIMG} from './pages/ArticlesLi
 import ArticlePage, {articleLoader} from './pages/ArticlePage';
 import Layout from './Layout';
 import NotFound from './pages/NotFoundPage';
-import WriteArticlePage from './pages/WriteArticlePage';
+import WriteArticlePage from './pages/WriteArticlePage/WriteArticlePage';
 import ChooseImgPage from './pages/ChooseImgPage';
 import ArticleCreatedPage from './pages/ArticleCreatedPage';
 

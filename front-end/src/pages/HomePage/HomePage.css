@@ -23,6 +23,7 @@
   .content-container{
     background-color: #A5292A;
     border: var(--border-width) solid #8B2526;
+    margin-bottom: 200px;
   }
 
   .image-container{
@@ -53,19 +54,6 @@
 
   .text-box p{
     margin-bottom: 2vw;
-  }
-
-  .text-box button{
-    padding: 10px;
-    background-color: #00C3FF;
-    color: white;
-    border: none;
-    transition: 0.3s;
-  }
-
-  .text-box button:hover{
-    transform: scale(1.1);
-    background-color: #44d3ff;
   }
 
   .text-box-container{

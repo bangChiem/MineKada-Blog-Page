@@ -28,21 +28,91 @@ nav h2 .style2{
   width: 700px;
 }
 
+/* FOOTER */
+footer {
+  padding-top: 20px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0.1, 0, 0, 0);
+  background-color: rgb(255, 236, 206);
+  border-top: #A5292A solid 10px;
+}
+
+footer img{
+  width: 40%;
+  margin-bottom: 20px;
+}
+
+footer div div {
+  padding: 0 20px 0 20px;
+  text-align: center;
+}
+
+footer button{
+  background-color: gray;
+}
+
+.footer-div-seperator{
+  background-color: #A5292A;
+  width: 98%;
+  padding: 0;
+  margin: 20px auto 20px auto;
+  height: 2px;
+}
+
+footer button:hover{
+  background-color: rgb(164, 164, 164);
+}
+
+/* BUTTONS */
+
+button{
+  padding: 10px;
+  font-family: 'MinecraftTen';
+  font-size: 1.8rem;
+  background-color: #00C3FF;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+button:hover{
+  transform: scale(1.1);
+  background-color: #44d3ff;
+}
+
 
 /* ARTICLE PAGE */
 .article-container {
   margin: 3vw 10vw 0 10vw;
 }
 
-@media (max-width: 656px) {
+@media (max-width: 985px) {
   nav ul{
     margin-left: 10px;
   }
 
+  button{
+    font-size: 1rem;
+  }
 }
 
+@media (min-width: 768px){
+  footer div div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
 
-@font-face {
-  font-family: 'MinecraftReg';
-  src: url('./assets/fonts/MinecraftRegular-Bmg3.otf') format('truetype');
+  footer img{
+    height: 100px;
+    width: auto;
+  }
+
+  .footer-div-seperator{
+    height: 90%;
+    width: 5px;
+  }
 }

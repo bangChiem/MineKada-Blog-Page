@@ -21,7 +21,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Left Column (text-boxes) */}
-                    <div class="col-xl-4 order-2 text-box-container">
+                    <div className="col-xl-4 order-2 text-box-container">
                         {/* text-box 1 */}
                         <div className="text-box mb-3 mb-xl-5">
                             <h3>Everyone Can Write Articles!</h3>

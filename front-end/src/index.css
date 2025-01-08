@@ -7,7 +7,11 @@ h2{
 }
 
 .page-container {
-  background-color: #EFEFEF;
+  height: 100vh;
+  background-color: #F6F6F6;
+  width: 90%;
+  padding: 2rem;
+  margin: auto;
 }
 
 body{
@@ -27,6 +31,13 @@ body{
 @media (min-width: 768px) {
   :root {
     --border-width: 10px; /* Medium screens and up */
+  }
+}
+
+@media (max-width: 656px) {
+    
+  .page-container{
+    width: 100%;
   }
 }
 
