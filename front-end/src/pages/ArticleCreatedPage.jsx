@@ -9,7 +9,6 @@ export default function ArticleCreatedPage(){
 
     async function confirmArticleCreated(){
         const response = await axios.get('/api/articles/' + name)
-        console.log(response.data)
         if (response.data == null){
             setIsArticleCreated(false);
         }
