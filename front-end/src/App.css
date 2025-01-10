@@ -92,9 +92,12 @@ button:hover{
   nav ul{
     margin-left: 10px;
   }
+}
 
-  button{
-    font-size: 1rem;
+/* Mobile screen sizing */
+@media (max-width: 656px) {
+  .page-container{
+    width: 100%;
   }
 }
 
