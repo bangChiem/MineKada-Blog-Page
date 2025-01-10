@@ -1,6 +1,7 @@
 import axios from "axios"
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
+import "./ArticleCreatedPage.css"
 
 export default function ArticleCreatedPage(){
 
@@ -25,14 +26,17 @@ export default function ArticleCreatedPage(){
     useEffect(() => {
         confirmArticleCreated()
     }, [name]);
-
-    if (isArticleCreated === null) {
-        return <h1>Loading...</h1>;
-    }
-
     return(
-        <div>
-            {isArticleCreated ? (<h1>Article Created!</h1>) : (<h1>Article Not Created</h1>)}
+        <div className="backdrop">
+            <div className="page-container article-created-page-container">
+                <h1>
+                    {isArticleCreated === null 
+                        ? "Loading..." 
+                        : isArticleCreated 
+                        ? "Article Created!" 
+                        : "Article Not Created"}
+                </h1>
+            </div>
         </div>
     )
 }

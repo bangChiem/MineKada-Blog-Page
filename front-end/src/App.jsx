@@ -13,7 +13,7 @@ import Layout from './Layout';
 import NotFound from './pages/NotFoundPage';
 import WriteArticlePage from './pages/WriteArticlePage/WriteArticlePage';
 import ChooseImgPage from './pages/ChooseImgPage/ChooseImgPage';
-import ArticleCreatedPage from './pages/ArticleCreatedPage';
+import ArticleCreatedPage from './pages/ArticleCreatedPage/ArticleCreatedPage';
 
 
 const images = [
