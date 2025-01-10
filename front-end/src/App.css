@@ -1,5 +1,6 @@
 /* NAVBAR */
 .navbar{
+  height: 8vh;
   position: sticky;
   top: 0;
   background-color: rgb(255, 236, 206);
@@ -86,6 +87,7 @@ button:hover{
   margin: 3vw 10vw 0 10vw;
 }
 
+/* Viewport width shrinks causing NavBar to collapse into second row  */
 @media (max-width: 985px) {
   nav ul{
     margin-left: 10px;
@@ -94,8 +96,13 @@ button:hover{
   button{
     font-size: 1rem;
   }
+
+  .navbar{
+    height: 95px;
+  }
 }
 
+/* Footer 3 column grid no longer fits in width viewport / make the footer items stack */
 @media (min-width: 768px){
   footer div div {
     display: flex;
