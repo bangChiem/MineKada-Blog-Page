@@ -42,6 +42,5 @@ export default function WriteArticle(){
                 </div>
             </div>
         </div>
-        
     )
 }

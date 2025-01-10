@@ -5,18 +5,16 @@
     font-size: 5rem;
     font-family: 'MinecraftTen';
     text-align: center;
-    margin-bottom: 5vh;
 }
 
 #article-text{
     width: 100%;
     height: 50vh;
-    margin-bottom: 5vh;
 }
 
 .write-article .page-container div{
     margin: auto;
-    width: 85%;
+    width: 70%;
 }
 
 .write-article .page-container{
@@ -25,6 +23,11 @@
 
 @media (max-width: 656px) {
     #article-title{
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .write-article .page-container div{
+        margin: auto;
+        width: 90%;
     }
   }
