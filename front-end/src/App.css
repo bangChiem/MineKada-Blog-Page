@@ -1,6 +1,6 @@
 /* NAVBAR */
 .navbar{
-  height: 8vh;
+  height: 10vh;
   position: sticky;
   top: 0;
   background-color: rgb(255, 236, 206);
@@ -95,10 +95,6 @@ button:hover{
 
   button{
     font-size: 1rem;
-  }
-
-  .navbar{
-    height: 95px;
   }
 }
 
