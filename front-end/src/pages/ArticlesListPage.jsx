@@ -1,5 +1,5 @@
 
-import ArticlesList from "../ArticlesList.jsx";
+import ArticlesList from "../ArticlesList/ArticlesList.jsx";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 export default function ArticlesListPage( {images} ) {
