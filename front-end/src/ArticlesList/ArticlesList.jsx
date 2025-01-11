@@ -17,7 +17,7 @@ export default function ArticlesList( {articles, images} ){
                                     <Card.Title>{a.title}</Card.Title>
                                     <Card.Text>{a.content[0].substring(0, 150)}...</Card.Text>
                                     <Link to={'/articles/' + a.name}>
-                                        <button variant="primary">Go somewhere</button>
+                                        <button variant="primary">Read Article</button>
                                     </Link>
                                 </Card.Body>
                             </Card>
