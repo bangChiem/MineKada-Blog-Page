@@ -1,4 +1,5 @@
 import axios from "axios"
+import { Link } from "react-router-dom"
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import "./ArticleCreatedPage.css"
@@ -29,6 +30,7 @@ export default function ArticleCreatedPage(){
     return(
         <div className="backdrop">
             <div className="page-container article-created-page-container">
+                <img src="/clouds.png"></img>
                 <h1>
                     {isArticleCreated === null 
                         ? "Loading..." 
@@ -36,6 +38,9 @@ export default function ArticleCreatedPage(){
                         ? "Article Created!" 
                         : "Article Not Created"}
                 </h1>
+                <Link to='/articles'>
+                    <button>Read Article</button>
+                </Link>
             </div>
         </div>
     )
