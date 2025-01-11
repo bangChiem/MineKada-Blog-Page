@@ -1,24 +1,15 @@
 /* NAVBAR */
 .navbar{
-  height: 10vh;
-  position: sticky;
-  top: 0;
   background-color: rgb(255, 236, 206);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-}
-
-nav h2{
-  padding-left: 1%;
-  padding-top: 0.5%;
-  margin-right: 100px;
 }
 
 nav h2 .style2{
   color: rgb(31, 171, 40);
 }
 
-.nav-item{
+.nav-items a{
   font-size: 1.2rem;
   text-decoration: none;
   color: rgb(31, 171, 40);
@@ -26,8 +17,8 @@ nav h2 .style2{
 
 .minekada-nav{
   text-decoration: none;
-  width: 700px;
 }
+
 
 /* FOOTER */
 footer {
@@ -67,9 +58,9 @@ footer button:hover{
 /* BUTTONS */
 
 button{
-  padding: 10px;
-  font-family: 'MinecraftTen';
-  font-size: 1.8rem;
+  padding: 1rem 2rem 1rem 2rem;
+  font-family: 'MinecraftTen' !important;
+  font-size: 3rem !important;
   background-color: #00C3FF;
   color: white;
   border: none;
@@ -81,23 +72,15 @@ button:hover{
   background-color: #44d3ff;
 }
 
-
-/* ARTICLE PAGE */
-.article-container {
-  margin: 3vw 10vw 0 10vw;
-}
-
-/* Viewport width shrinks causing NavBar to collapse into second row  */
-@media (max-width: 985px) {
-  nav ul{
-    margin-left: 10px;
-  }
-}
-
 /* Mobile screen sizing */
 @media (max-width: 656px) {
   .page-container{
     width: 100%;
+  }
+
+  button{
+    font-size: 1.5rem !important;
+    padding: 0.75rem;
   }
 }
 

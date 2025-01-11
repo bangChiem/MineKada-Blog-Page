@@ -27,7 +27,7 @@ const ResponsiveNavbar = () => {
             <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
+            <Nav className="justify-content-end flex-grow-1 pe-3 nav-items">
               <Nav.Link as={Link} to="/" onClick={handleClose}>Home</Nav.Link>
               <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
               <Nav.Link as={Link} to="/articles" onClick={handleClose}>Articles</Nav.Link>
