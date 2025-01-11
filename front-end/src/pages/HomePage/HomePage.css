@@ -4,6 +4,7 @@
  .hero-container{
     background-image: url('home-cloud.png');
     background-size: cover;
+    margin-top: 60px;
   }
   
   .hero-container h1{

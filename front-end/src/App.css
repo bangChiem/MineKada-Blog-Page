@@ -58,9 +58,9 @@ footer button:hover{
 /* BUTTONS */
 
 button{
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 0.75rem;
   font-family: 'MinecraftTen' !important;
-  font-size: 3rem !important;
+  font-size: 1.5rem !important;
   background-color: #00C3FF;
   color: white;
   border: none;
@@ -76,11 +76,6 @@ button:hover{
 @media (max-width: 656px) {
   .page-container{
     width: 100%;
-  }
-
-  button{
-    font-size: 1.5rem !important;
-    padding: 0.75rem;
   }
 }
 

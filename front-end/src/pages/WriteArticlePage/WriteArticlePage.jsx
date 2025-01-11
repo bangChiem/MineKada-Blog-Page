@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import "./WriteArticlePage.css"
+import ResponsiveNavbar from '../../ResponsiveNavbar';
 
 export default function WriteArticle(){
 
@@ -23,24 +24,27 @@ export default function WriteArticle(){
     }
 
     return (
-        <div className='backdrop write-article'>
-            <div className='container-fluid page-container'>
-                <div>
-                    <input autoComplete='on' id='article-title' type="text" placeholder="enter title" value={title} onChange={(e) => setTitle(e.target.value)}></input>
-                </div>
-                
-                <div>
-                    <textarea autoComplete='on' id='article-text' type="text" placeholder="enter text" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
-                </div>
+        <>
+            <div className='backdrop write-article'>
+                <div className='container-fluid page-container'>
+                    <div>
+                        <input autoComplete='on' id='article-title' type="text" placeholder="enter title" value={title} onChange={(e) => setTitle(e.target.value)}></input>
+                    </div>
+                    
+                    <div>
+                        <textarea autoComplete='on' id='article-text' type="text" placeholder="enter text" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+                    </div>
 
-                <div>
-                    <Link to={'/write-article/' + title.toLowerCase().split(" ").join("+") + '/choose-image'}>
-                        <button onClick={() => {
-                            onPublishArticle( {title, content} );}}
-                        >Next</button>
-                    </Link>
+                    <div>
+                        <Link to={'/write-article/' + title.toLowerCase().split(" ").join("+") + '/choose-image'}>
+                            <button onClick={() => {
+                                onPublishArticle( {title, content} );}}
+                            >Next</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+
     )
 }
