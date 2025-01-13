@@ -25,7 +25,7 @@ export default function ChooseImgPage( {images} ){
         <div className='backdrop'>
             <div className='page-container choose-article'>
                 <h1>Choose Article Picture</h1>
-                <Carousel
+                <Carousel className='carousel'
                     activeIndex={imageId}
                     onSelect={(selectedIndex) => setImageId(selectedIndex)}
                     interval={null}
