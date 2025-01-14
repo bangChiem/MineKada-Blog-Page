@@ -12,7 +12,7 @@ const ResponsiveNavbar = () => {
   return (
     <Navbar bg="rgb(255, 236, 206)" fixed="top" variant="light" expand="lg" collapseOnSelect>
       <Container>
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/">
           <h2>Minekada <span className="style2">Blog</span> Page</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} />

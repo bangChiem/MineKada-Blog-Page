@@ -1,0 +1,122 @@
+.page-container.article-page{
+    display: block;
+    height: fit-content;
+}
+/* article-container styles*/
+
+.article-container div{
+    padding-left: 50px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.article-container h1, .article-container img{
+    margin-bottom: 0;
+}
+
+.article-container p{
+    margin-top: 20px;
+    font-size: 1rem;
+    width: 100%;
+    border: #D2D2D2 5px solid;
+    background-color: rgb(218, 218, 218);
+    padding: 20px 7vw 20px 7vw;
+}
+
+.article-container h1{
+    font-size: 4.5rem;
+    color: rgb(39, 39, 39);
+    margin-top: 20px;
+}
+
+.article-container img{
+    width: 100%;
+}
+
+
+/* upvote and comment container styles */
+.upvote-comment-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* upvote-button styles*/
+.upvote-button{
+    font-family: 'MinecraftTen';
+    font-size: 2rem;
+    margin-top: 70px;
+    margin-bottom: 15px;
+    background-color: #D9D9D9;
+    border: 5px solid #bbbbbb;
+    padding: 10px 20px 0px 20px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upvote-counter{
+    font-weight: 100;
+    margin-left: 20px;
+}
+
+.upvote-button img{
+    margin-left: 20px;
+    margin-bottom: 7px;
+    transition: .3s ease;
+}
+
+.liked{
+    transform: scale(1.2);
+    cursor: default;
+}
+
+.like:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/* comment-container styles */
+.comment-container{
+    text-align: center;
+    background-color: #783C17;
+    border: 5px solid #5A2D11;
+    height: 100%;
+    margin-bottom: 16px;
+}
+
+.comment-container h1{
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'MinecraftTen';
+    color: rgb(255, 255, 255);
+}
+
+@media (max-width: 991px) {
+    /* recenter article image title and text when viewport width shrinks 
+    and comment / upvote container stacks */
+    .article-container div {
+        padding-right: 50px;
+    }
+
+    .article-container h1{
+        text-align: center;
+    }
+
+    /* Remove margin top for upvote button since button is now stacked */
+    .upvote-button{
+        margin-top: 0px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    /* re-center article image title and text when viewport width shrinks MOBILE
+    and comment / upvote container stacks */
+    .article-container div {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}

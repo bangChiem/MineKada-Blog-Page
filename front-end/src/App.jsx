@@ -8,7 +8,7 @@ import {
 import HomePage from './pages/HomePage/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlesListPage, {articlesLoader} from './pages/ArticlesListPage';
-import ArticlePage, {articleLoader} from './pages/ArticlePage';
+import ArticlePage, {articleLoader} from './pages/ArticlePage/ArticlePage';
 import Layout from './Layout';
 import NotFound from './pages/NotFoundPage';
 import WriteArticlePage from './pages/WriteArticlePage/WriteArticlePage';

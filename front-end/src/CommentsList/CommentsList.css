@@ -1,0 +1,28 @@
+.comment-text{
+    text-align: left;
+    padding: 15px;
+}
+
+.comment{
+    width: 15vw;
+    margin: auto;
+    background-color: aliceblue;
+}
+
+.comment-row-1{
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.comment-row-1 h4{
+    line-height: 10px;
+    margin: 0 0 0 10px;
+}
+
+@media (max-width: 600px) {
+    .comment{
+        width: 90%;
+    }
+}
