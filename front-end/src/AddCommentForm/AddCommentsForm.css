@@ -1,0 +1,43 @@
+.add-comment-form-container{
+    text-align: center;
+    margin: auto auto 20px auto;
+    width: 80%;
+    background-color: #7d5135;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+#comment-area{
+    height: 100px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#name-area, #comment-area{
+    padding: 5px;
+    border-radius: 3px;
+    border: #00C3FF;
+}
+
+.display-warning{
+    padding: 0 5px 0 5px;
+    color: rgb(229, 50, 50);
+    margin-bottom: 20px;
+}
+
+.flash {
+    animation: flash 0.5s ease-in-out;
+  }
+  
+  @keyframes flash {
+    0% {
+      background-color: #ffdddd;
+    }
+    50% {
+      background-color: #ffaaaa;
+    }
+    100% {
+      background-color: #ffdddd;
+    }
+  }
