@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
 
 const ResponsiveNavbar = () => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
+  const isLoggedIn = true;
+  const email = 'bang@gmail.com';
 
   return (
     <Navbar bg="rgb(255, 236, 206)" fixed="top" variant="light" expand="lg" collapseOnSelect>
@@ -32,6 +36,12 @@ const ResponsiveNavbar = () => {
               <Nav.Link as={Link} to="/about" onClick={handleClose}>About</Nav.Link>
               <Nav.Link as={Link} to="/articles" onClick={handleClose}>Articles</Nav.Link>
               <Nav.Link as={Link} to="/write-article" onClick={handleClose}>Write</Nav.Link>
+              <Nav.Link as={Link} to="/create-account" onClick={handleClose}>CreateAccount</Nav.Link>
+              {isLoggedIn && <p>{email}</p>}
+              {isLoggedIn
+              ? <button onClick={() => signOut(getAuth)}>Sign Out</button>
+              : <button onClick={() => navigate('/login')}>Sign In</button>
+              }
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

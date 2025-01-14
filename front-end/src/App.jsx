@@ -14,6 +14,8 @@ import NotFound from './pages/NotFoundPage';
 import WriteArticlePage from './pages/WriteArticlePage/WriteArticlePage';
 import ChooseImgPage from './pages/ChooseImgPage/ChooseImgPage';
 import ArticleCreatedPage from './pages/ArticleCreatedPage/ArticleCreatedPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import CreateAccountPage from './pages/CreateAccountPage/CreateAccountPage';
 
 
 const images = [
@@ -60,9 +62,16 @@ const routes = [{
         path: '/write-article/:name/choose-image',
         element: <ChooseImgPage images={images}/>
     },   {
-      path: '/write-article/:name/article-created',
-      element: <ArticleCreatedPage />
-  }]
+        path: '/write-article/:name/article-created',
+        element: <ArticleCreatedPage />
+    },   {
+        path:'/login',
+        element: <LoginPage />
+    },   {
+        path: '/create-account',
+        element: <CreateAccountPage />
+    }
+  ]
   }]
 
 const router = createBrowserRouter(routes);
