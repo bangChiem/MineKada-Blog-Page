@@ -2,3 +2,8 @@
     height: fit-content;
     padding: 3vw;
 }
+
+.text-muted{
+    padding-left: 16px;
+    padding-top: 16px;
+}

@@ -56,7 +56,20 @@ app.post('/api/writearticle', async (req,res) => {
     const name = title.toLowerCase().split(" ").join("+");
     const upvotes = 0;
     const comments = [];
-    const newArticle = {name, title, content, upvotes, comments, imageId}
+    // Generate current date in "YYYY-MM-DD" format
+    const today = new Date();
+    const date = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+
+    const newArticle = {
+        name, 
+        title, 
+        content, 
+        upvotes, 
+        comments, 
+        imageId,
+        date
+    }
+
     const updatedArticle = await db.collection('articles').insertOne(newArticle);
     res.json(updatedArticle)
 })
