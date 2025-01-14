@@ -41,6 +41,18 @@
         display: block;
     }
 
+    .carousel{
+        max-width: 90vw;
+    }
+
+    .carousel-control-prev {
+        left: 0%; 
+      }
+      
+      .carousel-control-next {
+        right: 0%; 
+      }
+
     .page-container.choose-article{
         text-align: center;
         min-height: 60vh;
