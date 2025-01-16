@@ -20,7 +20,7 @@ export default function ArticleCreatedPage(){
             }
         } catch(err){
             console.err("failed to fetch article " + name + " to confirm article was created / from article created page")
-            console.error(err);
+            console.error(err.message);
         }
     }
 

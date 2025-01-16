@@ -5,8 +5,6 @@
 /* article-container styles*/
 
 .article-container div{
-    padding-left: 50px;
-    padding-right: 0px;
     width: 100%;
 }
 
@@ -14,13 +12,14 @@
     margin-bottom: 0;
 }
 
-.article-container p{
+.article-content{
     margin-top: 20px;
     font-size: 1rem;
     width: 100%;
     border: #D2D2D2 5px solid;
     background-color: rgb(218, 218, 218);
     padding: 20px 7vw 20px 7vw;
+    margin-bottom: 20px;
 }
 
 .article-container h1{
@@ -31,6 +30,10 @@
 
 .article-container img{
     width: 100%;
+}
+
+.cannot-be-liked{
+    background-color: red;
 }
 
 
@@ -98,7 +101,8 @@
     /* recenter article image title and text when viewport width shrinks 
     and comment / upvote container stacks */
     .article-container div {
-        padding-right: 50px;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 
     .article-container h1{
@@ -110,13 +114,4 @@
         margin-top: 0px;
     }
 
-}
-
-@media (max-width: 600px) {
-    /* re-center article image title and text when viewport width shrinks MOBILE
-    and comment / upvote container stacks */
-    .article-container div {
-        padding-right: 0px;
-        padding-left: 0px;
-    }
 }

@@ -6,14 +6,16 @@ export default function LoginPage(){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = ('');
+    const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     async function logIn(){
         try{
             await signInWithEmailAndPassword(getAuth(), email, password);
             navigate('/articles');
         } catch(err){
-            setError(err);
+            setError(err.message);
         }
     }
 

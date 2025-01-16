@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, React } from 'react';
+
 import { useParams, useLoaderData } from 'react-router-dom';
 import axios from 'axios';
 import CommentsList from '../../CommentsList/CommentsList';
@@ -7,25 +8,50 @@ import "./ArticlePage.css"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import useUser from '../../useUser';
 
 export default function ArticlePage( {images} ) {
   const { name } = useParams();
-  const { upvotes: initialUpvotes, comments:initialComments, title: title, content: content, imageId:imageId} = useLoaderData();
+  const { upvotes: initialUpvotes, comments:initialComments, title: title, content: content, imageId:imageId, upvoteIds:upvoteIds} = useLoaderData();
   const [upvotes, setUpvotes] = useState(initialUpvotes);
   const [comments, setComments] = useState(initialComments);
-  const [upvoteImg, setUpvoteImg] = useState("/Like.png")
-  const [upVoteStatus, setUpvoteStatus] = useState(0)
+  const [upvoteImg, setUpvoteImg] = useState("/Like.png");
+  const [userHasLiked, setUserHasLiked] = useState(false);
 
+  const { isLoading, user } = useUser();
+
+  useEffect(() => {
+    if(user && !isLoading && upvoteIds && upvoteIds.includes(user.uid)){
+      setUpvoteImg('/Liked.png');
+      setUserHasLiked(true);
+    };
+  }, [upvoteIds, user]);
+
+  const paragraphs = content.split("\n").map((text, index) => (
+    <p key={index}>
+      {text.split("\t").map((segment, i) => (
+        <span key={i}>
+          {i > 0 && <span style={{ whiteSpace: "pre" }}>{"\t"}</span>}
+          {segment}
+        </span>
+      ))}
+    </p>
+  ));
+  
+  
+  
   async function onUpvoteClicked() {
     try{
-      if (upVoteStatus == 0){
+      if(!userHasLiked){
+        const token = user && await user.getIdToken();
+        const headers = token ? { authtoken: token } : {};
         setUpvoteImg("/Liked.png")
-        const response = await axios.post('/api/articles/' + name + '/upvote');
+        const response = await axios.post('/api/articles/' + name + '/upvote', null, { headers});
         const updatedArticleData = response.data;
         setUpvotes(updatedArticleData.upvotes);
-        setUpvoteStatus(1)
+        setUserHasLiked(true);
       }
-      
+      console.log("has already liked")
     } catch(err){
       console.error("Failed to increment upvote for article " + name + " / from ArticlePage");
       console.error(err);
@@ -53,33 +79,30 @@ export default function ArticlePage( {images} ) {
           <div>
             <h1>{title}</h1>
               <img src={images[imageId]}/>
-              {content.map((p, index) => (
-                <p key={index}>{p}</p>
-              ))}
+              <div className='article-content'>
+                {paragraphs}
+              </div>
           </div>
           
           </Col>
 
           <Col lg={3} sm={12} className='upvote-comment-container'>
-          <div className='upvote-button'>
+          {user ? <div className='upvote-button'>
             <span>Like</span>
             <span className='upvote-counter'>{upvotes}</span>
-            <img onClick={onUpvoteClicked} className={upVoteStatus == 0 ? "like" : "liked"} width="40px" height="40px" src={upvoteImg}></img>
-          </div>
+            <img onClick={onUpvoteClicked} className={userHasLiked ? "liked" : "like"} width="40px" height="40px" src={upvoteImg}></img>
+          </div>: <p>log in to upvote</p>} 
 
             <div className='comment-container'>
-              <h1>Comments</h1>
-              <AddCommentForm onAddComment={onAddComment}/>
+              {user ? <div>
+                <h1>Comments</h1>
+                <AddCommentForm onAddComment={onAddComment}/>
+              </div>: <p>log in to comment</p>}
               <CommentsList comments={comments} />
             </div>
           </Col>
         </Row>
-  
-
-
-
     </Container>
-
     </div>
 
   );
@@ -87,6 +110,6 @@ export default function ArticlePage( {images} ) {
 
 export async function articleLoader({ params }) {
   const response = await axios.get('/api/articles/' + params.name);
-  const { title, content, upvotes, comments, imageId } = response.data;
-  return { title, content, upvotes, comments, imageId};
+  const { title, content, upvotes, comments, imageId, upvoteIds } = response.data;
+  return { title, content, upvotes, comments, imageId, upvoteIds};
 }
