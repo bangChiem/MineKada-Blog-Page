@@ -1,7 +1,19 @@
 import express from 'express';
 import { MongoClient, ReturnDocument, ServerApiVersion } from 'mongodb';
+import admin from 'firebase-admin';
+import fs from 'fs';
+
+const credentials = JSON.parse(
+    fs.readFileSync('./credentials.json')
+);
+
+admin.initializeApp({
+  credential: admin.credential.cert(credentials)
+});
 
 const app = express();
+
+app.use(express.json());
 
 let db;
 
@@ -21,15 +33,7 @@ async function connectToDB() {
     db = client.db('full-stack-react-db');
 }
 
-app.use(express.json());
-
 app.get('/api/articles/:name', async (req, res) => {
-    const { name } = req.params;
-    const article = await db.collection('articles').findOne({ name });
-    res.json(article);
-  });
-
-app.get('/api/articles/:name/imageid', async (req, res) => {
     const { name } = req.params;
     const article = await db.collection('articles').findOne({ name });
     res.json(article);
@@ -40,16 +44,11 @@ app.get('/api/getarticles', async (req, res) => {
     res.json(articles);
 })
 
-app.post('/api/articles/:name/upvote', async (req,res) => {
-    const { name } = req.params; 
-    const updatedArticle = await db.collection('articles').findOneAndUpdate({ name } , {
-        $inc:  {upvotes: 1}
-    }, {
-        returnDocument: 'after',
-    });
-
-    res.json(updatedArticle)
-})
+app.get('/api/articles/:name/imageid', async (req, res) => {
+    const { name } = req.params;
+    const article = await db.collection('articles').findOne({ name });
+    res.json(article);
+});
 
 app.post('/api/writearticle', async (req,res) => {
     const { title, content, imageId } = req.body;
@@ -72,7 +71,7 @@ app.post('/api/writearticle', async (req,res) => {
 
     const updatedArticle = await db.collection('articles').insertOne(newArticle);
     res.json(updatedArticle)
-})
+});
 
 app.post('/api/writearticle/:name/change-img-id', async (req,res) => {
     const { name } = req.params;
@@ -84,6 +83,41 @@ app.post('/api/writearticle/:name/change-img-id', async (req,res) => {
     })
 
     res.json(200)
+});
+
+app.use(async function(req, res, next) {
+    const { authtoken } = req.headers;
+  
+    if (authtoken) {
+      const user = await admin.auth().verifyIdToken(authtoken);
+      req.user = user;
+      next();
+    } else {
+      res.sendStatus(400);
+    }
+  });
+
+app.post('/api/articles/:name/upvote', async (req,res) => {
+
+        const { name } = req.params; 
+        const { uid } = req.user;
+    
+        const article = await db.collection('articles').findOne( {name} )
+    
+        const upVoteIds = article.upvoteIds || [];
+        const canUpvote = uid && !upVoteIds.includes(uid);
+    
+        if (canUpvote){
+            const updatedArticle = await db.collection('articles').findOneAndUpdate({ name } , {
+                $inc:  {upvotes: 1},
+                $push: { upvoteIds: uid },
+            }, {
+                returnDocument: 'after',
+            });
+            res.json(updatedArticle);
+        } else {
+            res.sendStatus(403);
+        }
 })
 
 app.post('/api/articles/:name/comments', async (req,res) => {
