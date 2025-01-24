@@ -4,9 +4,10 @@ This is a side project to help me learn full stack development, while also servi
 
 ## Features
 - **Full-Stack Development**: Utilizes both React, Node.js to handle server-side logic and dynamic page rendering.
-- **Blog Posts**: Allows users to read and interact with posts related to the Minecraft server.
+- **USER AUTHENTICATION**: Uses firebase auth to authenticate users. Users can create accounts to write articles, comment on articles, and upvote articles.
+- **RESPONSIVE DESIGN**: Web app can be used for both mobile and desktop users.
 
 ## Technologies Used
-- **Frontend**: HTML, CSS, JavaScript (React.js), Bootstrap
-- **Backend**: Node.js, Express.js
+- **Frontend**: HTML, CSS, JavaScript (React.js), Bootstrap, React-bootstrap, reactjs-popup
+- **Backend**: Node.js, Express.js, Firebase Auth, Axios
 - **Database**: MongoDB (for storing blog posts and other dynamic content)
